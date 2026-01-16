@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="/longterm.min.css">
+  <script src="/longterm.min.js" defer></script>
+  <script src="/main.js" defer></script>
+  <style>
+    .demo-section {
+      margin-bottom: var(--lm-space-18);
+      padding-bottom: var(--lm-space-8);
+      border-bottom: 1px solid var(--lm-border);
+    }
+
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+
+    .demo-box {
+      border: 1px solid var(--lm-border);
+      padding: 30px;
+      border-radius: 3px;
+      margin-top: var(--lm-space-4);
+    }
+
+    .demo-box .demo-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--lm-space-4);
+      align-items: center;
+    }
+
+    .no-flex .demo-content {
+      display: block;
+    }
+
+    #typography .demo-box,
+    .demo-section[id="typography"] .demo-box {
+      display: block;
+    }
+
+    lm-demo.compact .demo-content {
+      max-width: 400px;
+    }
+
+    .demo-grid {
+      display: grid;
+      gap: var(--lm-space-4);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    @layer components {
+      .container {
+        max-width: 900px;
+      }
+    }
+
+    .sidebar nav small {
+      color: var(--lm-faint-foreground);
+      font-size: var(--lm-text-xs);
+      margin-left: var(--lm-space-2);
+    }
+
+    .section-permalink {
+      display: block;
+      margin-top: var(--lm-space-4);
+      font-size: var(--lm-text-sm);
+      color: var(--lm-muted-foreground);
+    }
+
+    .section-permalink:hover {
+      color: var(--lm-foreground);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Sidebar -->
+  <aside class="sidebar">
+    <h4 style="margin-bottom: var(--lm-space-4);">
+      <a href="/" style="text-decoration: none; color: inherit;">lmui</a>
+    </h4>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/usage/">Usage</a>
+      <details open>
+        <summary>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          Components
+        </summary>
+        <div>
+          {% set components = get_section(path="components/_index.md") %}
+          {% for page in components.pages %}
+          <a href="/components/#{{ page.slug }}">{{ page.title }}
+            {% if page.extra.webcomponent | default(value=false) %}<small>WebComponent</small>{% endif %}</a>
+          {% endfor %}
+        </div>
+      </details>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--lm-space-4);">
+      <button class="outline sm" style="width: 100%;" onclick="toggleTheme()">Toggle Dark mode</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="sidebar-content">
+    <div class="container" style="padding: var(--lm-space-12) var(--lm-space-6);">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <lm-toast-container></lm-toast-container>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Toast demo
+    function showToast(variant) {
+      const container = document.querySelector('lm-toast-container');
+      const messages = {
+        default: 'This is a default notification.',
+        success: 'Your changes have been saved!',
+        error: 'Something went wrong. Please try again.',
+        warning: 'Please review before continuing.'
+      };
+      container.show({
+        message: messages[variant] || messages.default,
+        variant: variant === 'default' ? '' : variant
+      });
+    }
+  </script>
+</body>
+
+</html>

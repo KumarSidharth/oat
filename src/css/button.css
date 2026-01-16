@@ -1,5 +1,5 @@
 @layer base {
-  button, [type="submit"], [type="reset"], [type="button"] {
+  button, [type="submit"], [type="reset"], [type="button"], .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,6 +10,7 @@
     font-weight: var(--lm-font-medium);
     line-height: 1;
     white-space: nowrap;
+    text-decoration: none;
     background-color: var(--lm-primary);
     color: var(--lm-primary-foreground);
     border-radius: var(--lm-radius);
@@ -19,6 +20,7 @@
 
     &:hover:not(:disabled) {
       background-color: color-mix(in srgb, var(--lm-primary), white 25%);
+      color: var(--lm-primary-foreground);
     }
 
     &:active:not(:disabled) {
@@ -42,6 +44,7 @@
 
       &:hover:not(:disabled) {
         background-color: color-mix(in srgb, var(--lm-secondary), black 10%);
+        color: var(--lm-secondary-foreground);
       }
     }
 
@@ -52,6 +55,7 @@
 
       &:hover:not(:disabled) {
         background-color: var(--lm-accent);
+        color: var(--lm-foreground);
       }
     }
 
@@ -62,6 +66,7 @@
 
       &:hover:not(:disabled) {
         background-color: var(--lm-accent);
+        color: var(--lm-foreground);
       }
     }
 
@@ -71,6 +76,7 @@
 
       &:hover:not(:disabled) {
         background-color: color-mix(in srgb, var(--lm-destructive), black 15%);
+        color: var(--lm-destructive-foreground);
       }
     }
 
@@ -105,7 +111,7 @@
   .btn-group {
     display: inline-flex;
 
-    & > button, & > [type="button"], & > [type="submit"], & > [type="reset"] {
+    & > button, & > [type="button"], & > [type="submit"], & > [type="reset"], & > .button {
       border-radius: 0;
 
       &:first-child {

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }} - Semantic UI Components{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: var(--lm-space-12);">
+  <h1 style="font-size: var(--lm-text-4xl); margin-bottom: var(--lm-space-4);">lmui</h1>
+  <p style="color: var(--lm-muted-foreground)">
+    A strict, minimal, semantic-first UI component library with zero dependencies.
+    Semantic tags and attributes are styled out of the box with few classes, thereby forcing best practices.
+    Components with dynamic behaviour are WebComponents.
+  </p>
+  <div>
+    <a href="/components/" class="button">Browse components</a>
+    <a href="/usage/" class="button outline">Get started</a>
+  </div>
+</div>
+
+<div
+  style="display: grid; gap: var(--lm-space-4); grid-template-columns: repeat(auto-fit, 1fr); margin-bottom: var(--lm-space-12);">
+  <article>
+    <header>
+      <h3>Lightweight</h3>
+    </header>
+    <p>~00KB CSS, ~00KB JS minified + gzipped.</p>
+  </article>
+
+  <article>
+    <header>
+      <h3>Zero dependencies</h3>
+    </header>
+    <p>Fully-standalone with no dependencies on any JS or CSS frameworks.
+      Components with dynamic behaviour are self-contained vanilla-Javascript WebComponents.
+    </p>
+  </article>
+
+  <article>
+    <header>
+      <h3>Semantic HTML</h3>
+    </header>
+    <p>Native elements like <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;dialog&gt;</code> and
+      semantic attributes
+      like <code>role="button"</code> are styled directly. No classes.</p>
+  </article>
+
+  <article>
+    <header>
+      <h3>Accessibility</h3>
+    </header>
+    <p>Semantic HTML and ARIA roles are used (and forced in many places) throughout.
+      Full keyboard navigation support for all components and elements.</p>
+  </article>
+
+  <article>
+    <header>
+      <h3>Themes</h3>
+    </header>
+    <p>Easily customize the overall theme using CSS custom properties. <code>data-theme="dark"</code> on body
+      automatically uses the bundled dark theme.</p>
+  </article>
+
+</div>
+
+{% endblock %}

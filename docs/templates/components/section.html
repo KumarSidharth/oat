@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Components - {{ config.title }}{% endblock %}
+
+{% block content %}
+<h1>Components</h1>
+<p>
+  lmui is a minimal, semantic-first UI component library with zero external dependencies. HTML native tags are styled by default without needing any classes. Dynamic components like dialogs and dropdowns use WebComponents.
+</p>
+
+<hr style="margin: var(--lm-space-8) 0;" />
+
+{% for page in section.pages %}
+<section id="{{ page.slug }}" class="demo-section">
+  <h2>{{ page.title }}</h2>
+  {{ page.content | safe }}
+  <a href="{{ page.permalink }}" class="section-permalink" aria-label="Permalink to {{ page.title }} doc">Link</a>
+</section>
+{% endfor %}
+{% endblock %}

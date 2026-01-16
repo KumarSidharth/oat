@@ -1,0 +1,10 @@
+base_url = "/"
+title = "lmui"
+compile_sass = false
+build_search_index = false
+
+[markdown]
+highlight_code = true
+
+[extra]
+description = "A minimal, semantic-first UI component library with zero dependencies"
