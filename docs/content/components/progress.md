@@ -1,10 +1,8 @@
 +++
-title = "Progress & spinner"
+title = "Progress"
 weight = 110
-description = "Progress bars using the native <progress> element. Spinners with role=\"status\"."
+description = "Progress bars using the native <progress> element."
 +++
-
-### Progress bar
 
 Use the native `<progress>` element.
 
@@ -13,17 +11,5 @@ Use the native `<progress>` element.
 <progress value="60" max="100"></progress>
 <progress value="30" max="100"></progress>
 <progress value="90" max="100"></progress>
-```
-{% end %}
-
-### Spinner
-
-Use `.spinner` with `role="status"` for loading indicators. Size with `.small` or `.large`.
-
-{% demo() %}
-```html
-<div role="status" class="spinner small"></div>
-<div role="status" class="spinner"></div>
-<div role="status" class="spinner large"></div>
 ```
 {% end %}

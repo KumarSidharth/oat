@@ -12,6 +12,7 @@ CSS_FILES = src/css/00-layers.css \
             src/css/form.css \
             src/css/table.css \
             src/css/progress.css \
+            src/css/spinner.css \
             src/css/grid.css \
             src/css/card.css \
             src/css/alert.css \
