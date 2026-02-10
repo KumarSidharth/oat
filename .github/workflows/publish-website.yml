@@ -10,6 +10,18 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: install esbuild
+        run: npm install -g esbuild
+
+      - name: build assets
+        run: make dist
+
       - name: build_and_deploy
         uses: shalzz/zola-deploy-action@v0.21.0
         env:
