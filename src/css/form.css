@@ -253,7 +253,8 @@
       display: none;
     }
 
-    &:has(input:where([aria-invalid="true"], :user-invalid)) .error {
+    /* Reveal error on aria-invalid="error" */
+    &:is([aria-invalid="true"], :has([aria-invalid="true"])) .error {
       display: block;
       color: var(--danger);
     }

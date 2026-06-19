@@ -129,7 +129,7 @@ Use `aria-invalid="true"` on field containers to reveal and style error messages
   <input type="email" aria-describedby="email-error-message" id="email-error-input" placeholder="Type invalid email here" autocomplete="off"  />
   <div id="email-error-message" class="error" role="status">Please enter a valid email address</div>
 </div>
-<label data-field>
+<label data-field aria-invalid="true">
   Enter secret value
   <input type="password" aria-invalid="true" id="new-password" aria-describedby="new-password-error" placeholder="Enter new secret" value="abcdefg"/>
   <div id="new-password-error" class="error" role="status">The value is incorrect</div>
