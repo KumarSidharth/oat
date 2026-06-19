@@ -119,33 +119,21 @@ Use `.group` on a `<fieldset>` to combine inputs with buttons or labels.
 
 ### Validation error
 
-Error messages are shown when an input is invalid. Use either:
-- HTML5 validation (the browser detects `:user-invalid` after user interaction)
-- `aria-invalid="true"` for custom validation logic
+Use `aria-invalid="true"` on field containers to reveal and style error messages.
 
-**HTML5 validation**
 {% demo() %}
 ```html
+<fieldset class="vstack">
 <div data-field>
   <label for="email-error-input">Email</label>
-  <input type="email" aria-describedby="email-error-message" id="email-error-input" placeholder="try an invalid email here"  />
-  <div id="email-error-message" class="error" role="status">Please enter a valid email address.</div>
+  <input type="email" aria-describedby="email-error-message" id="email-error-input" placeholder="Type invalid email here" autocomplete="off"  />
+  <div id="email-error-message" class="error" role="status">Please enter a valid email address</div>
 </div>
-```
-{% end %}
-
-**Custom validation with JavaScript:**
-
-Toggle the `aria-invalid="true"` attribute on the input using JavaScript to show or hide the error message
-{% demo() %}
-```html
-
 <label data-field>
-  New Password
-  <input type="password" aria-invalid="true" id="new-password" aria-describedby="new-password-error" placeholder="Enter new password" value="asdfasdf"/>
-  <div id="new-password-error" class="error" role="status">New password cannot be the same as old password.</div>
+  Enter secret value
+  <input type="password" aria-invalid="true" id="new-password" aria-describedby="new-password-error" placeholder="Enter new secret" value="abcdefg"/>
+  <div id="new-password-error" class="error" role="status">The value is incorrect</div>
 </label>
+</fieldset>
 ```
 {% end %}
-
-Both approaches work seamlessly together:

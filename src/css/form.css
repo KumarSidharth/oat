@@ -253,7 +253,6 @@
       display: none;
     }
 
-    /* Show error when input has aria-invalid="true" or is user-invalid */
     &:has(input:where([aria-invalid="true"], :user-invalid)) .error {
       display: block;
       color: var(--danger);
